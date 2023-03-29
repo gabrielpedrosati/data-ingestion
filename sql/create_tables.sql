@@ -1,0 +1,100 @@
+-- CREATE DATABASE
+CREATE MAESTRIADADOS;
+
+-- USE DATABASE
+USE MAESTRIADADOS;
+
+-- DROP TABLES
+DROP TABLE RIDES;
+DROP TABLE STATIONS;
+DROP TABLE NBA_PLAYERS;
+DROP TABLE TITANIC;
+DROP TABLE WEATHER;
+DROP TABLE ENDERECOS;
+DROP TABLE CLIENTES;
+
+-- CREATE TABLES
+CREATE TABLE IF NOT EXISTS RIDES (
+    user_gender VARCHAR(200),
+    user_birthdate VARCHAR(200),
+    user_residence VARCHAR(200),
+    ride_date VARCHAR(200),
+    time_start VARCHAR(200),
+    time_end VARCHAR(200),
+    station_start VARCHAR(200),
+    station_end VARCHAR(200),
+    ride_duration VARCHAR(200),
+    ride_late VARCHAR(200)
+);
+
+CREATE TABLE IF NOT EXISTS STATIONS (
+    station VARCHAR(200),
+    station_number VARCHAR(200),
+    station_name VARCHAR(200),
+    lat VARCHAR(200),
+    lon VARCHAR(200)
+);
+
+
+CREATE TABLE IF NOT EXISTS NBA_PLAYERS(
+    Name VARCHAR(100),
+    Team VARCHAR(100),  
+    Number DECIMAL,
+    Position VARCHAR(20),
+    Age INT,
+    Height VARCHAR(10),
+    Weight INT,
+    College VARCHAR(50),
+    Salary DECIMAL
+);
+
+
+CREATE TABLE IF NOT EXISTS TITANIC(
+    PassengerId INT,
+    Survived INT,
+    Pclass INT,
+    Name VARCHAR(100),
+    Sex VARCHAR(10),
+    Age INT,
+    SibSp INT,
+    Parch INT,
+    Ticket VARCHAR(100),
+    Fare DECIMAL,
+    Cabin VARCHAR(100),
+    Embarked CHAR(1)
+);
+
+
+CREATE TABLE IF NOT EXISTS WEATHER(
+    temp VARCHAR(50),
+    location VARCHAR(50),
+    clouds INT,
+    pressure DECIMAL,
+    rain VARCHAR(50),
+    time_stamp  VARCHAR(50),
+    humidity VARCHAR(50),
+    wind VARCHAR(50)
+);
+
+
+CREATE TABLE IF NOT EXISTS ENDERECOS(
+    CODIGO INT,
+    NUMERO INT,
+    TIPO_LOGRADOURO VARCHAR(50),
+    DESC_LOGRADOURO VARCHAR(400),
+    CIDADE VARCHAR(200),
+    ESTADO CHAR(2)
+);
+
+CREATE TABLE IF NOT EXISTS CLIENTES(
+    CODIGO INT,
+    DATA_CADASTRO DATE,
+    FATURAMENTO INT,
+    CLIENTE VARCHAR(100),
+    CEP INT,
+    TIPO_LOGRADOURO VARCHAR(100),
+    LOGRADOURO VARCHAR(300),
+    BAIRRO VARCHAR(100),
+    CIDADE VARCHAR(100),
+    UF CHAR(2)
+);
