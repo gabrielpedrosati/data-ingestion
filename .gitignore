@@ -1,1 +1,7 @@
 .ipynb_checkpoints
+.env
+env_variables.ipynb
+import_env_var.py
+ARQUIVOS_GENERICOS\ChicagoCensusData.csv
+ARQUIVOS_GENERICOS\ChicagoCrimeData.csv
+ARQUIVOS_GENERICOS\ChicagoPublicSchools.csv
