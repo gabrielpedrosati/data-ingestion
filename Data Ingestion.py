@@ -1,25 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# Install libraries
-get_ipython().system('pip install sqlalchemy')
-get_ipython().system('pip install pymysql')
-get_ipython().system('pip install python-dotenv')
-
-
-# In[2]:
-
-
 # Import libraries
-
 import os
 import pymysql
 import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
-
-
-# In[3]:
 
 
 # Import env vars
@@ -30,9 +14,6 @@ database = os.getenv("DB")
 user = os.getenv("USER")
 password = os.getenv("PASSWORD")
 port = os.getenv("PORT")
-
-
-# In[13]:
 
 
 class Ingestion:
@@ -110,10 +91,7 @@ class Ingestion:
         """Close database connection"""
 
         self.engine.dispose()
-
-
-# In[14]:
-
+      
 
 if __name__ == "__main__":
     
@@ -126,10 +104,3 @@ if __name__ == "__main__":
     ingest.load_to_database("stations")
     
     ingest.close_database_conn()
-
-
-# In[ ]:
-
-
-
-
