@@ -40,10 +40,10 @@ class Ingestion:
         close_database_conn(self):
             Terminate the database connection.
     """
-        
-    def connect_database(self, host, database, user, password, port):
-        """Connect to database and store the database connection object in self.engine.
 
+    def __init__(self, host, database, user, password, port):
+        """Create an instance of Ingestion and connect to database.
+        
         Arguments:
             host (string): database hostname.
             database (string): database name.
@@ -59,12 +59,12 @@ class Ingestion:
         except Exception as e:
             print("Connection failed! Exception: ", e)
             
-    def read_source(self, filename, delimiter):
+    def read_csv_file(self, filename, delimiter):
         """Create a pandas dataframe from a csv file and store in self.df.
 
         Attributes:
-            filename (string): file path.
-            delimiter (string): file delimiter.
+            filename (string): csv file path.
+            delimiter (string): csv file delimiter.
         """
 
         try:
@@ -77,7 +77,7 @@ class Ingestion:
         """Load dataframe into database.
 
         Attribute:
-            table (string): table name.        
+            table (string): destination table name.        
         """
 
         try:
@@ -87,7 +87,7 @@ class Ingestion:
         except Exception as e:
             print("Load failed! Exception: ", e)
             
-    def close_database_conn(self):
+    def close_connection(self):
         """Close database connection"""
 
         self.engine.dispose()
@@ -95,12 +95,10 @@ class Ingestion:
 
 if __name__ == "__main__":
     
-    ingest = Ingestion()
-    
-    ingest.connect_database(host, database, user, password, port)
-    
-    ingest.read_source("./ARQUIVOS_GENERICOS/STATIONS.csv", ",")
+    ingest = Ingestion(host, database, user, password, port)
+        
+    ingest.read_csv_file("./ARQUIVOS_GENERICOS/STATIONS.csv", ",")
     
     ingest.load_to_database("stations")
     
-    ingest.close_database_conn()
+    ingest.close_connection()
